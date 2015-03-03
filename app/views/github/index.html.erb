@@ -1,2 +1,1002 @@
-<h1>Github#index</h1>
-<p>Find me in app/views/github/index.html.erb</p>
+
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+
+
+
+
+
+
+        <div class="header header-logged-in true" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
+  <span class="mega-octicon octicon-mark-github"></span>
+</a>
+
+
+      <div class="site-search  js-site-search" role="search">
+          <form accept-charset="UTF-8" action="/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+  <input type="text"
+    class=""
+    data-hotkey="s"
+    name="q"
+    placeholder="Search GitHub"
+    data-global-scope-placeholder="Search GitHub"
+    data-repo-scope-placeholder="Search"
+    tabindex="1"
+    autocapitalize="off">
+  <div class="scope-badge">This repository</div>
+</form>
+      </div>
+      <ul class="header-nav left" role="navigation">
+        <li class="header-nav-item explore">
+          <a class="header-nav-link" href="/explore" data-ga-click="Header, go to explore, text:explore">Explore</a>
+        </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://gist.github.com" data-ga-click="Header, go to gist, text:gist">Gist</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="/blog" data-ga-click="Header, go to blog, text:blog">Blog</a>
+          </li>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
+        </li>
+      </ul>
+
+
+<ul class="header-nav user-nav right" id="user-links">
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link name" href="/<%=@user["login"]%>" data-ga-click="Header, go to profile, text:username">
+      <img alt="<%= @user["login"] %>" class="avatar" data-user="<%= @user["id"] %>" height="20" src="https://avatars0.githubusercontent.com/u/<%=@user["id"]-%>?v=3&amp;s=40" width="20" />
+      <span class="css-truncate">
+        <span class="css-truncate-target">
+          <%= @user["login"] %>
+        </span>
+      </span>
+    </a>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link js-menu-target tooltipped tooltipped-s" href="#" aria-label="Create new..." data-ga-click="Header, create new, icon:add">
+      <span class="octicon octicon-plus"></span>
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+
+<ul class="dropdown-menu">
+  <li>
+    <a href="/new" data-ga-click="Header, create new repository, icon:repo"><span class="octicon octicon-repo"></span> New repository</a>
+  </li>
+  <li>
+    <a href="/organizations/new" data-ga-click="Header, create new organization, icon:organization"><span class="octicon octicon-organization"></span> New organization</a>
+  </li>
+
+
+</ul>
+
+    </div>
+  </li>
+
+  <li class="header-nav-item">
+    <%#TODO: list notifications%>
+        <a href="/notifications" aria-label="You have no unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s" data-ga-click="Header, go to notifications, icon:read" data-hotkey="g n">
+        <span class="mail-status all-read"></span>
+        <span class="octicon octicon-inbox"></span>
+</a>
+  </li>
+
+  <li class="header-nav-item">
+    <a class="header-nav-link tooltipped tooltipped-s" href="/settings/profile" id="account_settings" aria-label="Settings" data-ga-click="Header, go to settings, icon:settings">
+      <span class="octicon octicon-gear"></span>
+    </a>
+  </li>
+
+  <li class="header-nav-item">
+    <form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="7P8fsrXWFrT1NLr5flPRHghUIgQx3zkiImzPy8u5NlAMiElah1gKGCMTNbrUObi+yj9SNvOsCzjIMEycM30Ohw==" /></div>
+      <button class="header-nav-link sign-out-button tooltipped tooltipped-s" aria-label="Sign out" data-ga-click="Header, sign out, icon:logout">
+        <span class="octicon octicon-sign-out"></span>
+      </button>
+</form>  </li>
+
+</ul>
+
+
+
+  </div>
+</div>
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+        <div class="site clearfix" role="main">
+
+          <div id="site-container" class="context-loader-container" data-pjax-container>
+
+
+
+<div class="container">
+  <div class="columns profilecols js-username" data-name="<%=@user["login"]%>">
+    <div class="column one-fourth vcard" itemscope itemtype="http://schema.org/Person">
+        <a href="/account" aria-label="Change your avatar" class="vcard-avatar tooltipped tooltipped-s"><img alt="" class="avatar" data-user="<%=@user["id"]%>" height="230" src="https://avatars3.githubusercontent.com/u/<%=@user["id"]%>?v=3&amp;s=460" width="230" /></a>
+
+      <h1 class="vcard-names">
+  <span class="vcard-fullname" itemprop="name"></span>
+  <span class="vcard-username" itemprop="additionalName"><%=@user["login"]%></span>
+</h1>
+
+
+
+<ul class="vcard-details">
+
+
+
+
+  <li class="vcard-detail"><span class="octicon octicon-clock"></span><span class="join-label">Joined on </span><time class="join-date" datetime="2014-07-18T00:01:53Z" day="numeric" is="local-time" month="short" year="numeric">Jul 17, 2014</time></li>
+</ul>
+
+
+      <div class="vcard-stats">
+        <a class="vcard-stat" href="/cHaden/followers">
+          <strong class="vcard-stat-count">6</strong>
+          <span class="text-muted">Followers</span>
+        </a>
+        <a class="vcard-stat" href="/stars">
+          <strong class="vcard-stat-count">0</strong>
+          <span class="text-muted">Starred</span>
+        </a>
+        <a class="vcard-stat" href="/cHaden/following">
+          <strong class="vcard-stat-count">1</strong>
+          <span class="text-muted">Following</span>
+        </a>
+      </div>
+
+        <div class="clearfix">
+          <h3>Organizations</h3>
+            <a href="/TIY-Web-Scraper" aria-label="TIY-Web-Scraper" class="tooltipped tooltipped-n  avatar-group-item" itemprop="follows"><img alt="TIY-Web-Scraper" class="avatar" data-user="10672446" height="42" src="https://avatars3.githubusercontent.com/u/10672446?v=3&amp;s=84" width="42" /></a>
+            <a href="/Spoongoats" aria-label="Spoongoats" class="tooltipped tooltipped-n  avatar-group-item" itemprop="follows"><img alt="Spoongoats" class="avatar" data-user="10762215" height="42" src="https://avatars0.githubusercontent.com/u/10762215?v=3&amp;s=84" width="42" /></a>
+            <a href="/TIYFallonChristen" aria-label="TIYFallonChristen" class="tooltipped tooltipped-n  avatar-group-item" itemprop="follows"><img alt="TIYFallonChristen" class="avatar" data-user="10871465" height="42" src="https://avatars2.githubusercontent.com/u/10871465?v=3&amp;s=84" width="42" /></a>
+            <a href="/PossumAwesome" aria-label="PossumAwesome" class="tooltipped tooltipped-n  avatar-group-item" itemprop="follows"><img alt="PossumAwesome" class="avatar" data-user="10964627" height="42" src="https://avatars3.githubusercontent.com/u/10964627?v=3&amp;s=84" width="42" /></a>
+            <a href="/PingPongVoting" aria-label="PingPongVoting" class="tooltipped tooltipped-n  avatar-group-item" itemprop="follows"><img alt="PingPongVoting" class="avatar" data-user="11080954" height="42" src="https://avatars2.githubusercontent.com/u/11080954?v=3&amp;s=84" width="42" /></a>
+            <a href="/TIY-Short-Feedback-Cycles" aria-label="TIY-Short-Feedback-Cycles" class="tooltipped tooltipped-n  avatar-group-item" itemprop="follows"><img alt="TIY-Short-Feedback-Cycles" class="avatar" data-user="11218752" height="42" src="https://avatars3.githubusercontent.com/u/11218752?v=3&amp;s=84" width="42" /></a>
+        </div>
+    </div>
+
+    <div class="column three-fourths">
+        <div class="new-user-avatar-cta">
+          <p>
+            <a href="/account" class="minibutton primary" data-ga-click="NUX Profile, click, Clicked Edit Profile Button" data-ga-load="NUX Profile, buttonview, Edit Profile Button">
+              <span class="octicon octicon-pencil"></span>
+              Edit profile
+            </a>
+          </p>
+          <p><strong>Pro tip:</strong> updating your profile with your name, location, and a profile picture helps other GitHub users get to know you.</p>
+        </div>
+
+
+      <div class="tabnav">
+          <div class="tabnav-right">
+          </div>
+
+        <ul class="tabnav-tabs" data-pjax role="navigation">
+          <li data-tab="contributions">
+            <a href="/cHaden" class="tabnav-tab ">
+              <span class="octicon octicon-diff-added"></span>
+              Contributions
+            </a>
+          </li>
+          <li data-tab="repo">
+            <a href="/cHaden?tab=repositories" class="tabnav-tab selected">
+              <span class="octicon octicon-repo"></span>
+              Repositories
+            </a>
+          </li>
+          <li data-tab="activity">
+            <a href="/cHaden?tab=activity" class="tabnav-tab ">
+              <span class="octicon octicon-rss"></span>
+              Public activity
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="tab-content js-repo-filter">
+
+  <div class="repo-tab">
+    <div class="filter-bar">
+        <a href="/new" class="button primary new-repo">
+          <span class="octicon octicon-repo"></span>
+          New
+</a>      <ul class="repo_filterer">
+          <li><a href="#" class="repo_filter js-repo-filter-tab" data-filter=".mirror">Mirrors</a></li>
+        <li><a href="#" class="repo_filter js-repo-filter-tab" data-filter=".fork">Forks</a></li>
+        <li><a href="#" class="repo_filter js-repo-filter-tab" data-filter=".source">Sources</a></li>
+          <li><a href="#" class="repo_filter js-repo-filter-tab" data-filter=".private">Private</a></li>
+          <li><a href="#" class="repo_filter js-repo-filter-tab" data-filter=".public">Public</a></li>
+        <li class="all_repos"><a href="#" class="repo_filter js-repo-filter-tab filter-selected" data-filter=".public, .private">All</a></li>
+      </ul>
+
+      <form action="/search" class="repo-search" role="search">
+        <input type="hidden" name="user" value="cHaden">
+        <input type="text" id="your-repos-filter" name="q" class="filter_input js-filterable-field" placeholder="Find a repository&hellip;" tabindex="2">
+        <input type="submit" value="Search" class="button">
+      </form>
+    </div>
+
+      <ul class="repo-list js-repo-list" data-filterable-for="your-repos-filter" data-filterable-type="substring">
+    <li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/github_profile/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/github_profile/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/github_profile">
+      github_profile</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-03-02T22:43:50Z" is="relative-time">Mar 2, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/github_profile/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      CSS
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/auction/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/auction/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/auction">
+      auction</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-25T19:39:02Z" is="relative-time">Feb 25, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/auction/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/add-jquery/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/add-jquery/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/add-jquery">
+      add-jquery</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-25T03:54:01Z" is="relative-time">Feb 25, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/add-jquery/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/add_javascript/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/add_javascript/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/add_javascript">
+      add_javascript</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-23T22:56:06Z" is="relative-time">Feb 23, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/add_javascript/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/javascript_playground/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/javascript_playground/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      3
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/javascript_playground">
+      javascript_playground</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/javascript_playground">tiyd-rails-2015-01/javascript_playground</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-23T19:46:41Z" is="relative-time">Feb 23, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/javascript_playground/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/Survey-Opossum-Plus-Testing/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/Survey-Opossum-Plus-Testing/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/Survey-Opossum-Plus-Testing">
+      Survey-Opossum-Plus-Testing</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-19T04:49:35Z" is="relative-time">Feb 19, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/Survey-Opossum-Plus-Testing/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/Survey-Opossum-Plus-Mailer/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/Survey-Opossum-Plus-Mailer/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/Survey-Opossum-Plus-Mailer">
+      Survey-Opossum-Plus-Mailer</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-18T05:25:36Z" is="relative-time">Feb 18, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/Survey-Opossum-Plus-Mailer/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/Survey-Opossum-Plus-SQL/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/Survey-Opossum-Plus-SQL/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/Survey-Opossum-Plus-SQL">
+      Survey-Opossum-Plus-SQL</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-17T04:05:10Z" is="relative-time">Feb 17, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/Survey-Opossum-Plus-SQL/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/off-the-rails/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/off-the-rails/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/off-the-rails">
+      off-the-rails</a>
+  </h3>
+
+
+    <p class="repo-list-description">
+      What I don't freakin' know about rails
+    </p>
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-11T00:12:49Z" is="relative-time">Feb 11, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/off-the-rails/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/achievement_gradebook/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/achievement_gradebook/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/achievement_gradebook">
+      achievement_gradebook</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-10T13:03:36Z" is="relative-time">Feb 10, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/achievement_gradebook/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/rails_assignments/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/rails_assignments/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      5
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/rails_assignments">
+      rails_assignments</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/masonfmatthews/rails_assignments">masonfmatthews/rails_assignments</a>
+    </p>
+
+    <p class="repo-list-description">
+      Assignments for the Rails course at The Iron Yard's Durham Campus
+    </p>
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-09T02:23:59Z" is="relative-time">Feb 9, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/rails_assignments/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/simple_authentication/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/simple_authentication/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/simple_authentication">
+      simple_authentication</a>
+  </h3>
+
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-05T13:00:06Z" is="relative-time">Feb 5, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/simple_authentication/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/menu/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/menu/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      16
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/menu">
+      menu</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/menu">tiyd-rails-2015-01/menu</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-02-04T00:55:50Z" is="relative-time">Feb 4, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/menu/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/wallet/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/wallet/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      16
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/wallet">
+      wallet</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/wallet">tiyd-rails-2015-01/wallet</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-29T05:17:43Z" is="relative-time">Jan 29, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/wallet/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/motivational_quotations/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/motivational_quotations/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      17
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/motivational_quotations">
+      motivational_quotations</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/motivational_quotations">tiyd-rails-2015-01/motivational_quotations</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-28T04:55:17Z" is="relative-time">Jan 28, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/motivational_quotations/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+
+    <li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/employee_reviews/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/employee_reviews/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      17
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/employee_reviews">
+      employee_reviews</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/employee_reviews">tiyd-rails-2015-01/employee_reviews</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-27T04:32:26Z" is="relative-time">Jan 27, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/employee_reviews/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/currency_converter/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/currency_converter/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      6
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/currency_converter">
+      currency_converter</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/currency_converter">tiyd-rails-2015-01/currency_converter</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-22T03:41:49Z" is="relative-time">Jan 22, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/currency_converter/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/currency/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/currency/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      20
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/currency">
+      currency</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/currency">tiyd-rails-2015-01/currency</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-21T14:51:05Z" is="relative-time">Jan 21, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/currency/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/battleship/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/battleship/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      17
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/battleship">
+      battleship</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/battleship">tiyd-rails-2015-01/battleship</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-20T06:14:54Z" is="relative-time">Jan 20, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/battleship/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/odd_array/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/odd_array/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      16
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/odd_array">
+      odd_array</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/odd_array">tiyd-rails-2015-01/odd_array</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-15T19:32:29Z" is="relative-time">Jan 15, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/odd_array/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/battleship_objects/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/battleship_objects/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      14
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/battleship_objects">
+      battleship_objects</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/battleship_objects">tiyd-rails-2015-01/battleship_objects</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-15T03:46:15Z" is="relative-time">Jan 15, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/battleship_objects/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public fork">
+  <div class="repo-list-stats">
+      Ruby
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/number_guessing/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/number_guessing/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      17
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/number_guessing">
+      number_guessing</a>
+  </h3>
+
+    <p class="repo-list-info">
+      <span class="octicon octicon-repo-forked"></span>
+      forked from <a href="/tiyd-rails-2015-01/number_guessing">tiyd-rails-2015-01/number_guessing</a>
+    </p>
+
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2015-01-13T22:29:32Z" is="relative-time">Jan 13, 2015</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/number_guessing/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+<li class="repo-list-item public source">
+  <div class="repo-list-stats">
+      JavaScript
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/TextArt/stargazers" aria-label="Stargazers">
+      <span class="octicon octicon-star"></span>
+      0
+    </a>
+    <a class="repo-list-stat-item tooltipped tooltipped-s" href="/cHaden/TextArt/network"  aria-label="Forks">
+      <span class="octicon octicon-git-branch"></span>
+      0
+    </a>
+  </div>
+
+  <h3 class="repo-list-name">
+    <a href="/cHaden/TextArt">
+      TextArt</a>
+  </h3>
+
+
+    <p class="repo-list-description">
+      A little Javascript Noodling
+    </p>
+
+  <p class="repo-list-meta">
+      Updated <time datetime="2014-12-10T06:07:09Z" is="relative-time">Dec 10, 2014</time>
+  </p>
+
+  <div class="participation-graph">
+    <poll-include-fragment src="/cHaden/TextArt/graphs/participation?h=80&amp;w=640"></poll-include-fragment>
+  </div>
+</li>
+
+</ul>
+
+  </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+          </div>
+          <div class="modal-backdrop"></div>
+        </div>
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="http://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="http://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+
+    <a href="/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>&copy; 2015 <span title="0.14969s from github-fe119-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w"
+      aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-9643b0378c6bcb216adcdaaaa703eed77aa239aaf1c2ae44cadb2fb5099ec172.js"></script>
+      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-b6ee04bf0aae7db4ad709a0a4bcaaf64b4f6e132d17710706361c673e1e59451.js"></script>
